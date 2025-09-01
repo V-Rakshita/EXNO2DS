@@ -109,6 +109,54 @@ df.boxplot(column='Age',by='Pclass')
 ```
 <img width="593" height="544" alt="image" src="https://github.com/user-attachments/assets/1ab270f7-3008-41a3-8d3b-0423df6cd374" />
 
+#### 4. Scatterplot
+```python
+sns.scatterplot(x='Age',y='Fare',data=df)
+```
+<img width="696" height="584" alt="image" src="https://github.com/user-attachments/assets/fb64ab10-37f3-473d-92d4-b2c85f418b2d" />
+
+#### 5. Joinplot
+```python
+sns.jointplot(x='Age',y='Fare',data=df)
+```
+<img width="635" height="618" alt="image" src="https://github.com/user-attachments/assets/2afcd3bf-a6a4-4e63-9cba-b5f4c219dda1" />
+
+```python
+sns.jointplot(x='Age',y='Fare',data=df,kind='kde')
+```
+<img width="705" height="665" alt="image" src="https://github.com/user-attachments/assets/7832b08b-f070-4430-a83a-d2efac9ed863" />
+
+```python
+sns.jointplot(x='Age',y='Fare',data=df,kind='hist')
+```
+<img width="611" height="666" alt="image" src="https://github.com/user-attachments/assets/2d200458-d715-4818-9300-401a615b8b55" />
+
+```python
+sns.jointplot(x='Age',y='Fare',data=df,kind='scatter')
+```
+<img width="715" height="662" alt="image" src="https://github.com/user-attachments/assets/0e317f55-cb69-4560-82db-ff594fa26196" />
+
+#### 6. Pairplot
+```python
+sns.pairplot(data=df)
+```
+<img width="854" height="810" alt="image" src="https://github.com/user-attachments/assets/06ff215e-3794-4386-9018-ac95debca717" />
+
+#### 7. Heatmap
+```python
+cor1=df.select_dtypes(include=['number']).corr()
+sns.heatmap(cor1,annot=True)
+```
+<img width="754" height="648" alt="image" src="https://github.com/user-attachments/assets/094d232b-b9c9-4470-938b-bbdd9efad904" />
+
+```python
+group = df.groupby(['Pclass','Survived'])
+pclass_survived = group.size().unstack()
+#unstack to convert back to dataframe
+sns.heatmap(pclass_survived,annot=True,fmt='d')
+```
+<img width="726" height="652" alt="image" src="https://github.com/user-attachments/assets/c48b3eef-4534-4ec8-95ef-75e33c59420c" />
+
 
 
 
